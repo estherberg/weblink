@@ -23,6 +23,13 @@ export default function WebLinkDevelopment() {
         return () => clearInterval(interval);
     }, []);
 
+    useEffect(() => {
+        // Update page title based on language
+        document.title = language === 'fr'
+            ? 'WebLink - Développement Web Professionnel'
+            : 'WebLink - Professional Web Development';
+    }, [language]);
+
     const content = {
         fr: {
             nav: {
@@ -192,7 +199,7 @@ export default function WebLinkDevelopment() {
                         price: "$599",
                         description: "Perfect to start your online presence",
                         features: [
-                            "3-5 pages showcase website",
+                            "7-9 pages showcase website",
                             "Modern responsive design",
                             "Basic SEO optimization",
                             "Contact form",
@@ -206,7 +213,7 @@ export default function WebLinkDevelopment() {
                         price: "$999",
                         description: "For ambitious professional projects",
                         features: [
-                            "Website up to 10 pages",
+                            "Website up to 15 pages",
                             "Custom premium design",
                             "Advanced SEO optimization",
                             "CMS integration",
