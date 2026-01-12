@@ -5,7 +5,7 @@ export default function WebLinkDevelopment() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeService, setActiveService] = useState(0);
-    const [language, setLanguage] = useState('fr');
+    const [language, setLanguage] = useState('en');
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
