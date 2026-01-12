@@ -85,7 +85,7 @@ export default function WebLinkDevelopment() {
                         price: "499€",
                         description: "Parfait pour démarrer votre présence en ligne",
                         features: [
-                            "Site vitrine 3-5 pages",
+                            "Site vitrine 7-9 pages",
                             "Design moderne et responsive",
                             "Optimisation SEO basique",
                             "Formulaire de contact",
@@ -99,7 +99,7 @@ export default function WebLinkDevelopment() {
                         price: "799€",
                         description: "Pour les projets professionnels ambitieux",
                         features: [
-                            "Site jusqu'à 10 pages",
+                            "Site jusqu'à 15 pages",
                             "Design premium personnalisé",
                             "Optimisation SEO avancée",
                             "Intégration CMS",
@@ -349,7 +349,7 @@ export default function WebLinkDevelopment() {
             <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-lg shadow-blue-100/50' : ''}`}>
                 <div className="max-w-7xl w-full mx-auto px-6 lg:px-12 xl:px-16 py-5">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
+                        <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
                                 <img
                                     src="/logo.png"
@@ -362,7 +362,7 @@ export default function WebLinkDevelopment() {
                                 <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">WebLink</span>
                                 <div className="text-xs text-slate-600">Development</div>
                             </div>
-                        </div>
+                        </a>
 
                         <div className="hidden md:flex items-center gap-8">
                             <a href="#services" className="text-slate-700 hover:text-blue-600 transition-colors font-medium text-lg">{t.nav.services}</a>
@@ -611,7 +611,7 @@ export default function WebLinkDevelopment() {
             <footer className="relative border-t border-slate-200 bg-white/50 backdrop-blur-sm py-16 px-6 lg:px-12 xl:px-16">
                 <div className="max-w-7xl mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                        <div className="flex items-center gap-3">
+                        <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
                                 <img
                                     src="/logo.png"
@@ -623,7 +623,7 @@ export default function WebLinkDevelopment() {
                                 <span className="text-2xl font-bold text-slate-900">WebLink</span>
                                 <div className="text-sm text-slate-600">Development</div>
                             </div>
-                        </div>
+                        </a>
 
                         <div className="text-slate-600 text-center">
                             {t.footer.copyright}
