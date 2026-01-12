@@ -30,22 +30,22 @@ export default function WebLinkDevelopment() {
             : 'WebLink - Professional Web Development';
     }, [language]);
 
-    // Animation observer disabled to prevent jumping
-    // useEffect(() => {
-    //     const observer = new IntersectionObserver(
-    //         (entries) => {
-    //             entries.forEach((entry) => {
-    //                 if (entry.isIntersecting) {
-    //                     entry.target.classList.add('animate-in');
-    //                 }
-    //             });
-    //         },
-    //         { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
-    //     );
-    //     const sections = document.querySelectorAll('[data-animate]');
-    //     sections.forEach((section) => observer.observe(section));
-    //     return () => observer.disconnect();
-    // }, []);
+    // Animation observer for smooth scroll effects
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+        const sections = document.querySelectorAll('[data-animate]');
+        sections.forEach((section) => observer.observe(section));
+        return () => observer.disconnect();
+    }, []);
 
     const content = {
         fr: {
