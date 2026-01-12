@@ -566,12 +566,21 @@ export default function WebLinkDevelopment() {
                                         ))}
                                     </ul>
 
-                                    <button className={`w-full py-4 rounded-full text-lg font-semibold transition-all duration-300 ${idx === 1
-                                        ? `bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:shadow-xl hover:shadow-blue-500/50`
-                                        : 'border-2 border-slate-300 text-slate-700 hover:border-blue-500 hover:bg-blue-50'
-                                        }`}>
+                                    <a
+                                        href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}?text=${encodeURIComponent(
+                                            language === 'fr'
+                                                ? `Bonjour, je suis intéressé par le pack ${plan.name}`
+                                                : `Hello, I am interested in the ${plan.name} plan`
+                                        )}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className={`w-full py-4 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center ${idx === 1
+                                            ? `bg-gradient-to-r from-indigo-600 to-blue-600 text-white hover:shadow-xl hover:shadow-blue-500/50`
+                                            : 'border-2 border-slate-300 text-slate-700 hover:border-blue-500 hover:bg-blue-50'
+                                        }`}
+                                    >
                                         {plan.cta}
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         ))}
