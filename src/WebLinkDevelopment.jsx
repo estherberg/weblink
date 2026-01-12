@@ -9,7 +9,6 @@ export default function WebLinkDevelopment() {
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
-    const [visibleSections, setVisibleSections] = useState(new Set());
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -31,30 +30,22 @@ export default function WebLinkDevelopment() {
             : 'WebLink - Professional Web Development';
     }, [language]);
 
-    useEffect(() => {
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-in');
-                        setVisibleSections(prev => new Set(prev).add(entry.target.id));
-                    }
-                });
-            },
-            { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
-        );
-
-        // Observe all sections with slight delays for stagger effect
-        const sections = document.querySelectorAll('[data-animate]');
-        sections.forEach((section, index) => {
-            // Very subtle delay, max 0.15s
-            section.style.animationDelay = `${Math.min(index * 0.02, 0.15)}s`;
-            observer.observe(section);
-        });
-
-        return () => observer.disconnect();
-    }, []);
+    // Animation observer disabled to prevent jumping
+    // useEffect(() => {
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 if (entry.isIntersecting) {
+    //                     entry.target.classList.add('animate-in');
+    //                 }
+    //             });
+    //         },
+    //         { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+    //     );
+    //     const sections = document.querySelectorAll('[data-animate]');
+    //     sections.forEach((section) => observer.observe(section));
+    //     return () => observer.disconnect();
+    // }, []);
 
     const content = {
         fr: {
