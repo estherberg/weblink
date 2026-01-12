@@ -9,6 +9,7 @@ export default function WebLinkDevelopment() {
     const [email, setEmail] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState('');
+    const [visibleSections, setVisibleSections] = useState(new Set());
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -29,6 +30,30 @@ export default function WebLinkDevelopment() {
             ? 'WebLink - Développement Web Professionnel'
             : 'WebLink - Professional Web Development';
     }, [language]);
+
+    useEffect(() => {
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                        setVisibleSections(prev => new Set(prev).add(entry.target.id));
+                    }
+                });
+            },
+            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        );
+
+        // Observe all sections with slight delays for stagger effect
+        const sections = document.querySelectorAll('[data-animate]');
+        sections.forEach((section, index) => {
+            section.style.animationDelay = `${index * 0.1}s`;
+            observer.observe(section);
+        });
+
+        return () => observer.disconnect();
+    }, []);
 
     const content = {
         fr: {
@@ -418,21 +443,21 @@ export default function WebLinkDevelopment() {
             <section className="relative pt-40 pb-32 px-6 lg:px-12 xl:px-16 min-h-screen flex items-center">
                 <div className="max-w-7xl w-full mx-auto">
                     <div className="text-center w-full max-w-6xl mx-auto">
-                        <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full mb-10 backdrop-blur-sm">
+                        <div data-animate="fade" className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full mb-10 backdrop-blur-sm">
                             <Zap className="w-5 h-5 text-blue-600" />
                             <span className="text-base text-blue-700 font-medium">{t.hero.badge}</span>
                         </div>
 
-                        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-slate-900">
+                        <h1 data-animate="fade-up" className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-slate-900">
                             {t.hero.title1}
                             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent"> {t.hero.title2}</span>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-slate-600 mb-14 leading-relaxed max-w-3xl mx-auto">
+                        <p data-animate="fade-up" className="text-xl md:text-2xl text-slate-600 mb-14 leading-relaxed max-w-3xl mx-auto">
                             {t.hero.subtitle}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
+                        <div data-animate="fade-up" className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
                             <button className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2">
                                 {t.hero.cta1}
                                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -445,7 +470,7 @@ export default function WebLinkDevelopment() {
                         {/* Stats */}
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
                             {t.stats.map((stat, idx) => (
-                                <div key={idx} className="relative group">
+                                <div key={idx} data-animate="scale" className="relative group">
                                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
                                     <div className="relative bg-white/70 backdrop-blur-sm border-2 border-slate-200 rounded-2xl p-8 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-200/50 transition-all">
                                         <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-2">
@@ -464,16 +489,17 @@ export default function WebLinkDevelopment() {
             <section id="services" className="relative py-24 px-6 lg:px-12 xl:px-16">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20 max-w-5xl mx-auto">
-                        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
+                        <h2 data-animate="fade-up" className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
                             {t.services.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.services.title2}</span>
                         </h2>
-                        <p className="text-xl md:text-2xl text-slate-600">{t.services.subtitle}</p>
+                        <p data-animate="fade-up" className="text-xl md:text-2xl text-slate-600">{t.services.subtitle}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
                         {services.map((service, idx) => (
                             <div
                                 key={idx}
+                                data-animate="fade-up"
                                 className={`relative group cursor-pointer transition-all duration-500 ${activeService === idx ? 'scale-105' : ''}`}
                                 onMouseEnter={() => setActiveService(idx)}
                             >
@@ -495,16 +521,17 @@ export default function WebLinkDevelopment() {
             <section id="pricing" className="relative py-24 px-6 lg:px-12 xl:px-16">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20">
-                        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
+                        <h2 data-animate="fade-up" className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
                             {t.pricing.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.pricing.title2}</span>
                         </h2>
-                        <p className="text-xl md:text-2xl text-slate-600">{t.pricing.subtitle}</p>
+                        <p data-animate="fade-up" className="text-xl md:text-2xl text-slate-600">{t.pricing.subtitle}</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                         {t.pricing.plans.map((plan, idx) => (
                             <div
                                 key={idx}
+                                data-animate="fade-up"
                                 className={`relative group ${idx === 1 ? 'md:-mt-6 md:mb-6' : ''}`}
                             >
                                 {idx === 1 && (
@@ -551,7 +578,7 @@ export default function WebLinkDevelopment() {
             {/* CTA Section */}
             <section id="contact" className="relative py-24 px-6 lg:px-12 xl:px-16">
                 <div className="max-w-5xl mx-auto text-center">
-                    <div className="relative group">
+                    <div data-animate="scale" className="relative group">
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
                         <div className="relative bg-white/90 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-16 md:p-20 shadow-xl">
                             <h2 className="text-5xl md:text-6xl font-bold mb-8 text-slate-900">
