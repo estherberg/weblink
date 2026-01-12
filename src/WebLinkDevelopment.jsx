@@ -458,13 +458,18 @@ export default function WebLinkDevelopment() {
                         </p>
 
                         <div data-animate="fade-up" className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-                            <button className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+                            <a href="#pricing" className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2">
                                 {t.hero.cta1}
                                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            </button>
-                            <button className="px-10 py-5 border-2 border-slate-300 rounded-full text-lg font-semibold hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 text-slate-700">
+                            </a>
+                            <a
+                                href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}?text=${encodeURIComponent(language === 'fr' ? 'Bonjour, je souhaite voir votre portfolio' : 'Hello, I would like to see your portfolio')}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-10 py-5 border-2 border-slate-300 rounded-full text-lg font-semibold hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 text-slate-700"
+                            >
                                 {t.hero.cta2}
-                            </button>
+                            </a>
                         </div>
 
                         {/* Stats */}
