@@ -279,7 +279,7 @@ export default function WebLinkDevelopment() {
                 href={language === 'fr' ? 'https://wa.me/33695443075' : 'https://wa.me/972539309450'}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="fixed bottom-8 right-8 z-50 w-16 h-16 bg-[#25D366] hover:bg-[#20BA5A] rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 group"
+                className="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 w-14 h-14 md:w-16 md:h-16 bg-[#25D366] hover:bg-[#20BA5A] rounded-full flex items-center justify-center shadow-2xl hover:shadow-green-500/50 transition-all duration-300 hover:scale-110 group"
                 aria-label="WhatsApp"
             >
                 <svg className="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -298,7 +298,7 @@ export default function WebLinkDevelopment() {
 
             {/* Navigation */}
             <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-lg shadow-blue-100/50' : ''}`}>
-                <div className="max-w-7xl w-full mx-auto px-6 lg:px-12 xl:px-16 py-5">
+                <div className="w-full mx-auto px-4 md:px-8 py-5">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
@@ -366,9 +366,9 @@ export default function WebLinkDevelopment() {
             )}
 
             {/* Hero Section */}
-            <section className="relative pt-40 pb-32 px-6 lg:px-12 xl:px-16 min-h-screen flex items-center justify-center">
-                <div className="max-w-7xl w-full mx-auto">
-                    <div className="text-center w-full max-w-6xl mx-auto">
+            <section className="relative pt-40 pb-32 px-4 md:px-8 min-h-screen flex items-center justify-center">
+                <div className="w-full mx-auto">
+                    <div className="text-center w-full mx-auto">
                         <div className="flex justify-center mb-10">
                             <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full backdrop-blur-sm">
                                 <Zap className="w-5 h-5 text-blue-600" />
@@ -381,7 +381,7 @@ export default function WebLinkDevelopment() {
                             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent"> {t.hero.title2}</span>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-slate-600 mb-14 leading-relaxed max-w-3xl mx-auto text-center">
+                        <p className="text-xl md:text-2xl text-slate-600 mb-14 leading-relaxed mx-auto text-center px-2">
                             {t.hero.subtitle}
                         </p>
 
@@ -396,7 +396,7 @@ export default function WebLinkDevelopment() {
                         </div>
 
                         {/* Stats */}
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mx-auto">
                             {t.stats.map((stat, idx) => (
                                 <div key={idx} className="relative group">
                                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity"></div>
@@ -414,16 +414,16 @@ export default function WebLinkDevelopment() {
             </section>
 
             {/* Services Section */}
-            <section id="services" className="relative py-24 px-6 lg:px-12 xl:px-16">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-20 max-w-5xl mx-auto">
+            <section id="services" className="relative py-24 px-4 md:px-8">
+                <div className="w-full mx-auto">
+                    <div className="text-center mb-20 mx-auto">
                         <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 text-center">
                             {t.services.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.services.title2}</span>
                         </h2>
                         <p className="text-xl md:text-2xl text-slate-600 text-center">{t.services.subtitle}</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-8 mx-auto">
                         {services.map((service, idx) => (
                             <div
                                 key={idx}
@@ -431,7 +431,7 @@ export default function WebLinkDevelopment() {
                                 onMouseEnter={() => setActiveService(idx)}
                             >
                                 <div className={`absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
-                                <div className="relative bg-white/80 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 text-center">
+                                <div className="relative bg-white/80 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-6 md:p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 text-center">
                                     <div className="flex justify-center mb-6">
                                         <div className={`w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30 transition-transform duration-300 ${activeService === idx ? 'scale-110 rotate-12' : ''}`}>
                                             <div className="text-white">{service.icon}</div>
@@ -447,8 +447,8 @@ export default function WebLinkDevelopment() {
             </section>
 
             {/* Pricing Section */}
-            <section id="pricing" className="relative py-24 px-6 lg:px-12 xl:px-16">
-                <div className="max-w-7xl mx-auto">
+            <section id="pricing" className="relative py-24 px-4 md:px-8">
+                <div className="w-full mx-auto">
                     <div className="text-center mb-20">
                         <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 text-center">
                             {t.pricing.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.pricing.title2}</span>
@@ -456,7 +456,7 @@ export default function WebLinkDevelopment() {
                         <p className="text-xl md:text-2xl text-slate-600 text-center">{t.pricing.subtitle}</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                    <div className="grid md:grid-cols-3 gap-4 md:gap-8 mx-auto max-w-7xl">
                         {t.pricing.plans.map((plan, idx) => (
                             <div
                                 key={idx}
@@ -470,7 +470,7 @@ export default function WebLinkDevelopment() {
 
                                 <div className={`absolute inset-0 bg-gradient-to-br ${idx === 0 ? 'from-blue-400 to-cyan-400' : idx === 1 ? 'from-indigo-500 to-blue-500' : 'from-orange-400 to-red-400'} rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity`}></div>
 
-                                <div className={`relative bg-white/90 backdrop-blur-sm border-2 ${idx === 1 ? 'border-blue-400 shadow-xl shadow-blue-200/50' : 'border-slate-200'} rounded-3xl p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 text-center`}>
+                                <div className={`relative bg-white/90 backdrop-blur-sm border-2 ${idx === 1 ? 'border-blue-400 shadow-xl shadow-blue-200/50' : 'border-slate-200'} rounded-3xl p-6 md:p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 text-center`}>
                                     <h3 className="text-3xl font-bold mb-3 text-slate-900 text-center">{plan.name}</h3>
                                     <p className="text-slate-600 mb-8 h-12 text-base text-center">{plan.description}</p>
 
@@ -504,15 +504,15 @@ export default function WebLinkDevelopment() {
             </section>
 
             {/* CTA Section */}
-            <section id="contact" className="relative py-24 px-6 lg:px-12 xl:px-16">
-                <div className="max-w-5xl mx-auto text-center">
+            <section id="contact" className="relative py-24 px-4 md:px-8">
+                <div className="w-full max-w-5xl mx-auto text-center">
                     <div className="relative group">
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                        <div className="relative bg-white/90 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-16 md:p-20 shadow-xl text-center">
+                        <div className="relative bg-white/90 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-8 md:p-16 shadow-xl text-center">
                             <h2 className="text-5xl md:text-6xl font-bold mb-8 text-slate-900 text-center">
                                 {t.cta.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.cta.title2}</span> ?
                             </h2>
-                            <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto text-center">
+                            <p className="text-xl md:text-2xl text-slate-600 mb-10 mx-auto text-center">
                                 {t.cta.subtitle}
                             </p>
                             <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-10">
@@ -551,8 +551,8 @@ export default function WebLinkDevelopment() {
             </section>
 
             {/* Footer */}
-            <footer className="relative border-t border-slate-200 bg-white/50 backdrop-blur-sm py-16 px-6 lg:px-12 xl:px-16">
-                <div className="max-w-7xl mx-auto">
+            <footer className="relative border-t border-slate-200 bg-white/50 backdrop-blur-sm py-16 px-4 md:px-8">
+                <div className="w-full mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
                         <div className="flex flex-col md:flex-row items-center gap-3">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
