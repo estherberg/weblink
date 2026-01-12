@@ -303,7 +303,7 @@ export default function WebLinkDevelopment() {
                         <div className="flex items-center gap-3">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
                                 <img
-                                    src="./logo.png"
+                                    src="/logo.png"
                                     alt="Logo WebLink"
                                     className="w-full h-full object-cover"
                                 />
@@ -553,7 +553,7 @@ export default function WebLinkDevelopment() {
                         <div className="flex items-center gap-3">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
                                 <img
-                                    src="./logo.png"
+                                    src="/logo.png"
                                     alt="Logo WebLink"
                                     className="w-full h-full object-cover"
                                 />
