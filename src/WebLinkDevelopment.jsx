@@ -6,6 +6,9 @@ export default function WebLinkDevelopment() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeService, setActiveService] = useState(0);
     const [language, setLanguage] = useState('fr');
+    const [email, setEmail] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState('');
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -125,7 +128,9 @@ export default function WebLinkDevelopment() {
                 title2: "décoller",
                 subtitle: "Discutons de votre projet et créons ensemble le site web de vos rêves",
                 email: "Votre email",
-                button: "Démarrer maintenant"
+                button: "Démarrer maintenant",
+                success: "Message envoyé avec succès ! Nous vous contacterons bientôt.",
+                error: "Erreur lors de l'envoi. Veuillez réessayer."
             },
             footer: {
                 copyright: "© 2026 WebLink Development. Créé avec ❤️ et beaucoup de caféine.",
@@ -237,7 +242,9 @@ export default function WebLinkDevelopment() {
                 title2: "take off",
                 subtitle: "Let's discuss your project and create your dream website together",
                 email: "Your email",
-                button: "Start now"
+                button: "Start now",
+                success: "Message sent successfully! We will contact you soon.",
+                error: "Error sending message. Please try again."
             },
             footer: {
                 copyright: "© 2024 WebLink Development. Made with ❤️ and lots of caffeine.",
@@ -248,6 +255,41 @@ export default function WebLinkDevelopment() {
     };
 
     const t = content[language];
+
+    const handleEmailSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitMessage('');
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || 'YOUR_WEB3FORMS_ACCESS_KEY',
+                    email: email,
+                    subject: `Nouveau contact depuis WebLink - ${language === 'fr' ? 'FR' : 'EN'}`,
+                    message: `Nouveau contact intéressé par vos services.\nEmail: ${email}\nLangue: ${language === 'fr' ? 'Français' : 'English'}`,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setSubmitMessage(t.cta.success);
+                setEmail('');
+            } else {
+                setSubmitMessage(t.cta.error);
+            }
+        } catch (error) {
+            setSubmitMessage(t.cta.error);
+        } finally {
+            setIsSubmitting(false);
+            setTimeout(() => setSubmitMessage(''), 5000);
+        }
+    };
 
     const services = [
         {
@@ -511,17 +553,29 @@ export default function WebLinkDevelopment() {
                             <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto">
                                 {t.cta.subtitle}
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-5 justify-center mb-10">
+                            <form onSubmit={handleEmailSubmit} className="flex flex-col sm:flex-row gap-5 justify-center mb-10">
                                 <input
                                     type="email"
                                     placeholder={t.cta.email}
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
                                     className="px-8 py-5 text-lg bg-white border-2 border-slate-300 rounded-full focus:outline-none focus:border-blue-500 text-slate-900 transition-colors"
                                 />
-                                <button className="px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2">
-                                    {t.cta.button}
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                                >
+                                    {isSubmitting ? (language === 'fr' ? 'Envoi...' : 'Sending...') : t.cta.button}
                                     <Rocket className="w-5 h-5" />
                                 </button>
-                            </div>
+                            </form>
+                            {submitMessage && (
+                                <div className={`mb-6 text-lg font-medium ${submitMessage.includes('succès') || submitMessage.includes('success') ? 'text-green-600' : 'text-red-600'}`}>
+                                    {submitMessage}
+                                </div>
+                            )}
                             <div className="flex items-center justify-center gap-3">
                                 {/* Logo WhatsApp */}
                                 <svg
