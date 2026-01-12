@@ -392,9 +392,14 @@ export default function WebLinkDevelopment() {
                                 <Languages className="w-4 h-4" />
                                 <span className="font-medium">{language === 'fr' ? 'EN' : 'FR'}</span>
                             </button>
-                            <button className="px-7 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center gap-2 font-medium">
+                            <a
+                                href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}?text=${encodeURIComponent(language === 'fr' ? 'Bonjour, je souhaite démarrer un projet' : 'Hello, I would like to start a project')}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-7 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 flex items-center gap-2 font-medium"
+                            >
                                 {t.nav.cta} <ArrowRight className="w-4 h-4" />
-                            </button>
+                            </a>
                         </div>
 
                         <button className="md:hidden text-slate-700" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
@@ -422,7 +427,9 @@ export default function WebLinkDevelopment() {
                             <span className="font-medium">{language === 'fr' ? 'English' : 'Français'}</span>
                         </button>
                         <a
-                            href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}`}
+                            href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}?text=${encodeURIComponent(language === 'fr' ? 'Bonjour, je souhaite démarrer un projet' : 'Hello, I would like to start a project')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-block text-2xl font-semibold text-black hover:text-gray-600 transition-colors px-8 py-3 rounded-full shadow-lg shadow-blue-200/30"
                         >
                             {t.nav.cta}
