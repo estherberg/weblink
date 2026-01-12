@@ -456,14 +456,14 @@ export default function WebLinkDevelopment() {
                         <p className="text-xl md:text-2xl text-slate-600 text-center">{t.pricing.subtitle}</p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-4 md:gap-8 mx-auto max-w-7xl">
+                    <div className="grid md:grid-cols-3 gap-4 md:gap-8 mx-auto max-w-7xl pt-8">
                         {t.pricing.plans.map((plan, idx) => (
                             <div
                                 key={idx}
                                 className={`relative group ${idx === 1 ? 'md:-mt-6 md:mb-6' : ''}`}
                             >
                                 {idx === 1 && (
-                                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-sm font-semibold shadow-lg">
+                                    <div className="absolute -top-12 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-sm font-semibold shadow-lg z-10">
                                         ⭐ {t.pricing.popular}
                                     </div>
                                 )}
