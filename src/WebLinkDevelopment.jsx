@@ -48,8 +48,8 @@ export default function WebLinkDevelopment() {
         // Observe all sections with slight delays for stagger effect
         const sections = document.querySelectorAll('[data-animate]');
         sections.forEach((section, index) => {
-            // Limit delay to max 0.3s for better UX
-            section.style.animationDelay = `${Math.min(index * 0.05, 0.3)}s`;
+            // Very subtle delay, max 0.15s
+            section.style.animationDelay = `${Math.min(index * 0.02, 0.15)}s`;
             observer.observe(section);
         });
 
