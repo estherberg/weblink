@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, Zap, Code, Rocket, Shield, Star, Check, Menu, X, Globe, Sparkles, ArrowRight, MousePointer, Languages, MessageCircle } from 'lucide-react';
+import logoImage from './assets/logo.png';
 
 export default function WebLinkDevelopment() {
     const [scrolled, setScrolled] = useState(false);
@@ -303,7 +304,7 @@ export default function WebLinkDevelopment() {
                         <div className="flex items-center gap-3">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
                                 <img
-                                    src="/logo.png"
+                                    src={logoImage}
                                     alt="Logo WebLink"
                                     className="w-full h-full object-cover"
                                 />
@@ -557,7 +558,7 @@ export default function WebLinkDevelopment() {
                         <div className="flex flex-col md:flex-row items-center gap-3">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
                                 <img
-                                    src="/logo.png"
+                                    src={logoImage}
                                     alt="Logo WebLink"
                                     className="w-full h-full object-cover"
                                 />
