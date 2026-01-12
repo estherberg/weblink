@@ -341,23 +341,23 @@ export default function WebLinkDevelopment() {
             {/* Mobile Menu */}
             {mobileMenuOpen && (
                 <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl md:hidden pt-20">
-                    <div className="flex flex-col items-center gap-8 p-6">
-                        <a href="#services" className="text-2xl text-slate-700 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>{t.nav.services}</a>
-                        <a href="#pricing" className="text-2xl text-slate-700 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>{t.nav.pricing}</a>
-                        <a href="#contact" className="text-2xl text-slate-700 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</a>
+                    <div className="flex flex-col items-center justify-center gap-8 p-6 text-center">
+                        <a href="#services" className="text-2xl text-slate-700 hover:text-blue-600 font-medium text-center" onClick={() => setMobileMenuOpen(false)}>{t.nav.services}</a>
+                        <a href="#pricing" className="text-2xl text-slate-700 hover:text-blue-600 font-medium text-center" onClick={() => setMobileMenuOpen(false)}>{t.nav.pricing}</a>
+                        <a href="#contact" className="text-2xl text-slate-700 hover:text-blue-600 font-medium text-center" onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</a>
                         <button
                             onClick={() => {
                                 setLanguage(language === 'fr' ? 'en' : 'fr');
                                 setMobileMenuOpen(false);
                             }}
-                            className="flex items-center gap-2 px-6 py-3 border-2 border-slate-300 rounded-full text-xl hover:border-blue-500 hover:bg-blue-50"
+                            className="flex items-center justify-center gap-2 px-6 py-3 border-2 border-slate-300 rounded-full text-xl hover:border-blue-500 hover:bg-blue-50"
                         >
                             <Languages className="w-5 h-5" />
                             <span className="font-medium">{language === 'fr' ? 'English' : 'Français'}</span>
                         </button>
                         <a
                             href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}`}
-                            className="inline-block text-2xl font-semibold text-black hover:text-gray-600 transition-colors px-8 py-3 rounded-full shadow-lg shadow-blue-200/30"
+                            className="text-2xl font-semibold text-black hover:text-gray-600 transition-colors px-8 py-3 rounded-full shadow-lg shadow-blue-200/30 text-center"
                         >
                             {t.nav.cta}
                         </a>
@@ -366,29 +366,31 @@ export default function WebLinkDevelopment() {
             )}
 
             {/* Hero Section */}
-            <section className="relative pt-40 pb-32 px-6 lg:px-12 xl:px-16 min-h-screen flex items-center">
+            <section className="relative pt-40 pb-32 px-6 lg:px-12 xl:px-16 min-h-screen flex items-center justify-center">
                 <div className="max-w-7xl w-full mx-auto">
                     <div className="text-center w-full max-w-6xl mx-auto">
-                        <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full mb-10 backdrop-blur-sm">
-                            <Zap className="w-5 h-5 text-blue-600" />
-                            <span className="text-base text-blue-700 font-medium">{t.hero.badge}</span>
+                        <div className="flex justify-center mb-10">
+                            <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-100 border border-blue-300 rounded-full backdrop-blur-sm">
+                                <Zap className="w-5 h-5 text-blue-600" />
+                                <span className="text-base text-blue-700 font-medium">{t.hero.badge}</span>
+                            </div>
                         </div>
 
-                        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-slate-900">
+                        <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-slate-900 text-center">
                             {t.hero.title1}
                             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent"> {t.hero.title2}</span>
                         </h1>
 
-                        <p className="text-xl md:text-2xl text-slate-600 mb-14 leading-relaxed max-w-3xl mx-auto">
+                        <p className="text-xl md:text-2xl text-slate-600 mb-14 leading-relaxed max-w-3xl mx-auto text-center">
                             {t.hero.subtitle}
                         </p>
 
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-20">
-                            <button className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+                        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
+                            <button className="group px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
                                 {t.hero.cta1}
                                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </button>
-                            <button className="px-10 py-5 border-2 border-slate-300 rounded-full text-lg font-semibold hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 text-slate-700">
+                            <button className="px-10 py-5 border-2 border-slate-300 rounded-full text-lg font-semibold hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 text-slate-700 w-full sm:w-auto text-center">
                                 {t.hero.cta2}
                             </button>
                         </div>
@@ -415,10 +417,10 @@ export default function WebLinkDevelopment() {
             <section id="services" className="relative py-24 px-6 lg:px-12 xl:px-16">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20 max-w-5xl mx-auto">
-                        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
+                        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 text-center">
                             {t.services.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.services.title2}</span>
                         </h2>
-                        <p className="text-xl md:text-2xl text-slate-600">{t.services.subtitle}</p>
+                        <p className="text-xl md:text-2xl text-slate-600 text-center">{t.services.subtitle}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 max-w-7xl mx-auto">
@@ -429,12 +431,14 @@ export default function WebLinkDevelopment() {
                                 onMouseEnter={() => setActiveService(idx)}
                             >
                                 <div className={`absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-3xl blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}></div>
-                                <div className="relative bg-white/80 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300">
-                                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30 transition-transform duration-300 ${activeService === idx ? 'scale-110 rotate-12' : ''}`}>
-                                        <div className="text-white">{service.icon}</div>
+                                <div className="relative bg-white/80 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 text-center">
+                                    <div className="flex justify-center mb-6">
+                                        <div className={`w-16 h-16 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30 transition-transform duration-300 ${activeService === idx ? 'scale-110 rotate-12' : ''}`}>
+                                            <div className="text-white">{service.icon}</div>
+                                        </div>
                                     </div>
-                                    <h3 className="text-2xl font-bold mb-4 text-slate-900">{service.title}</h3>
-                                    <p className="text-slate-600 text-lg leading-relaxed">{service.description}</p>
+                                    <h3 className="text-2xl font-bold mb-4 text-slate-900 text-center">{service.title}</h3>
+                                    <p className="text-slate-600 text-lg leading-relaxed text-center">{service.description}</p>
                                 </div>
                             </div>
                         ))}
@@ -446,10 +450,10 @@ export default function WebLinkDevelopment() {
             <section id="pricing" className="relative py-24 px-6 lg:px-12 xl:px-16">
                 <div className="max-w-7xl mx-auto">
                     <div className="text-center mb-20">
-                        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
+                        <h2 className="text-5xl md:text-6xl font-bold mb-6 text-slate-900 text-center">
                             {t.pricing.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.pricing.title2}</span>
                         </h2>
-                        <p className="text-xl md:text-2xl text-slate-600">{t.pricing.subtitle}</p>
+                        <p className="text-xl md:text-2xl text-slate-600 text-center">{t.pricing.subtitle}</p>
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -466,22 +470,22 @@ export default function WebLinkDevelopment() {
 
                                 <div className={`absolute inset-0 bg-gradient-to-br ${idx === 0 ? 'from-blue-400 to-cyan-400' : idx === 1 ? 'from-indigo-500 to-blue-500' : 'from-orange-400 to-red-400'} rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity`}></div>
 
-                                <div className={`relative bg-white/90 backdrop-blur-sm border-2 ${idx === 1 ? 'border-blue-400 shadow-xl shadow-blue-200/50' : 'border-slate-200'} rounded-3xl p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300`}>
-                                    <h3 className="text-3xl font-bold mb-3 text-slate-900">{plan.name}</h3>
-                                    <p className="text-slate-600 mb-8 h-12 text-base">{plan.description}</p>
+                                <div className={`relative bg-white/90 backdrop-blur-sm border-2 ${idx === 1 ? 'border-blue-400 shadow-xl shadow-blue-200/50' : 'border-slate-200'} rounded-3xl p-10 h-full hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300 text-center`}>
+                                    <h3 className="text-3xl font-bold mb-3 text-slate-900 text-center">{plan.name}</h3>
+                                    <p className="text-slate-600 mb-8 h-12 text-base text-center">{plan.description}</p>
 
-                                    <div className="mb-10">
+                                    <div className="mb-10 text-center">
                                         <div className={`text-6xl font-bold bg-gradient-to-r ${idx === 0 ? 'from-blue-600 to-cyan-600' : idx === 1 ? 'from-indigo-600 to-blue-600' : 'from-orange-600 to-red-600'} bg-clip-text text-transparent`}>
                                             {plan.price}
                                         </div>
-                                        {!plan.price.includes('devis') && !plan.price.includes('quote') && <div className="text-slate-500 mt-2">{t.pricing.payment}</div>}
+                                        {!plan.price.includes('devis') && !plan.price.includes('quote') && <div className="text-slate-500 mt-2 text-center">{t.pricing.payment}</div>}
                                     </div>
 
-                                    <ul className="space-y-4 mb-10">
+                                    <ul className="space-y-4 mb-10 text-left">
                                         {plan.features.map((feature, fidx) => (
                                             <li key={fidx} className="flex items-start gap-3">
                                                 <Check className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                                                <span className="text-slate-700">{feature}</span>
+                                                <span className="text-slate-700 text-left">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
@@ -504,25 +508,25 @@ export default function WebLinkDevelopment() {
                 <div className="max-w-5xl mx-auto text-center">
                     <div className="relative group">
                         <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-400 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                        <div className="relative bg-white/90 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-16 md:p-20 shadow-xl">
-                            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-slate-900">
+                        <div className="relative bg-white/90 backdrop-blur-sm border-2 border-slate-200 rounded-3xl p-16 md:p-20 shadow-xl text-center">
+                            <h2 className="text-5xl md:text-6xl font-bold mb-8 text-slate-900 text-center">
                                 {t.cta.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.cta.title2}</span> ?
                             </h2>
-                            <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto">
+                            <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto text-center">
                                 {t.cta.subtitle}
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-5 justify-center mb-10">
+                            <div className="flex flex-col sm:flex-row gap-5 justify-center items-center mb-10">
                                 <input
                                     type="email"
                                     placeholder={t.cta.email}
-                                    className="px-8 py-5 text-lg bg-white border-2 border-slate-300 rounded-full focus:outline-none focus:border-blue-500 text-slate-900 transition-colors"
+                                    className="px-8 py-5 text-lg bg-white border-2 border-slate-300 rounded-full focus:outline-none focus:border-blue-500 text-slate-900 transition-colors w-full sm:w-auto text-center"
                                 />
-                                <button className="px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2">
+                                <button className="px-10 py-5 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full text-lg font-semibold hover:shadow-xl hover:shadow-blue-500/50 transition-all duration-300 flex items-center justify-center gap-2 w-full sm:w-auto">
                                     {t.cta.button}
                                     <Rocket className="w-5 h-5" />
                                 </button>
                             </div>
-                            <div className="flex items-center justify-center gap-3">
+                            <div className="flex items-center justify-center gap-3 text-center">
                                 {/* Logo WhatsApp */}
                                 <svg
                                     className="w-9 h-9 text-green-500"
@@ -535,7 +539,7 @@ export default function WebLinkDevelopment() {
                                 {/* Numéro cliquable */}
                                 <a
                                     href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}`}
-                                    className="text-2xl font-semibold text-black hover:text-black-400 transition-colors"
+                                    className="text-2xl font-semibold text-black hover:text-black-400 transition-colors text-center"
                                 >
                                     {language === 'fr' ? '+33 6 95 44 30 75' : '+972 53 930 9450'}
                                 </a>
@@ -549,8 +553,8 @@ export default function WebLinkDevelopment() {
             {/* Footer */}
             <footer className="relative border-t border-slate-200 bg-white/50 backdrop-blur-sm py-16 px-6 lg:px-12 xl:px-16">
                 <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-                        <div className="flex items-center gap-3">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+                        <div className="flex flex-col md:flex-row items-center gap-3">
                             <div className="w-20 h-20 rounded-2xl overflow-hidden shadow-lg shadow-blue-500/30">
                                 <img
                                     src="./logo.png"
@@ -558,7 +562,7 @@ export default function WebLinkDevelopment() {
                                     className="w-full h-full object-cover"
                                 />
                             </div>
-                            <div>
+                            <div className="text-center md:text-left">
                                 <span className="text-2xl font-bold text-slate-900">WebLink</span>
                                 <div className="text-sm text-slate-600">Development</div>
                             </div>
@@ -568,7 +572,7 @@ export default function WebLinkDevelopment() {
                             {t.footer.copyright}
                         </div>
 
-                        <div className="flex gap-8">
+                        <div className="flex flex-col md:flex-row gap-4 md:gap-8 text-center">
                             <a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium text-lg">{t.footer.legal}</a>
                             <a href="#" className="text-slate-600 hover:text-blue-600 transition-colors font-medium text-lg">{t.footer.terms}</a>
                             <a href="#contact" className="text-slate-600 hover:text-blue-600 transition-colors font-medium text-lg">{t.nav.contact}</a>
