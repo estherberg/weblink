@@ -42,13 +42,14 @@ export default function WebLinkDevelopment() {
                     }
                 });
             },
-            { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+            { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
         );
 
         // Observe all sections with slight delays for stagger effect
         const sections = document.querySelectorAll('[data-animate]');
         sections.forEach((section, index) => {
-            section.style.animationDelay = `${index * 0.1}s`;
+            // Limit delay to max 0.3s for better UX
+            section.style.animationDelay = `${Math.min(index * 0.05, 0.3)}s`;
             observer.observe(section);
         });
 
