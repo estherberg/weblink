@@ -51,6 +51,7 @@ export default function WebLinkDevelopment() {
         fr: {
             nav: {
                 services: "Services",
+                portfolio: "Portfolio",
                 pricing: "Tarifs",
                 contact: "Contact",
                 cta: "Démarrer"
@@ -89,6 +90,35 @@ export default function WebLinkDevelopment() {
                     {
                         title: "Applications Web",
                         description: "Solutions web sur-mesure, évolutives et sécurisées"
+                    }
+                ]
+            },
+            portfolio: {
+                title1: "Nos",
+                title2: "réalisations",
+                subtitle: "Découvrez quelques-uns de nos projets récents",
+                viewProject: "Voir le projet",
+                projects: [
+                    {
+                        title: "OuieQare",
+                        description: "Plateforme complète pour la recherche de centres médicaux spécialisés en audiologie. Interface intuitive avec système de géolocalisation et prise de rendez-vous en ligne.",
+                        image: "/projects/ouieqare.png",
+                        url: "https://www.ouieqare.com/",
+                        stack: ["React", "Node.js", "MongoDB", "Google Maps API"]
+                    },
+                    {
+                        title: "Reactif Services Plus",
+                        description: "Site vitrine professionnel pour un service de serrurerie à Troyes. Design moderne avec formulaire de contact et système d'urgence 24/7.",
+                        image: "/projects/reactif.png",
+                        url: "https://reactifservicesplus.fr/",
+                        stack: ["Wordpress", "Elementor", "CSS"]
+                    },
+                    {
+                        title: "Vtalys CRM",
+                        description: "Plateforme de gestion CRM sophistiquée dédiée aux centres médicaux. Solution complète pour la gestion des patients, rendez-vous et facturation.",
+                        image: "/projects/vtalys.png",
+                        url: "https://www.vtalys.fr/",
+                        stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Heroku"]
                     }
                 ]
             },
@@ -165,6 +195,7 @@ export default function WebLinkDevelopment() {
         en: {
             nav: {
                 services: "Services",
+                portfolio: "Portfolio",
                 pricing: "Pricing",
                 contact: "Contact",
                 cta: "Get Started"
@@ -203,6 +234,35 @@ export default function WebLinkDevelopment() {
                     {
                         title: "Web Applications",
                         description: "Custom, scalable and secure web solutions"
+                    }
+                ]
+            },
+            portfolio: {
+                title1: "Our",
+                title2: "projects",
+                subtitle: "Discover some of our recent work",
+                viewProject: "View project",
+                projects: [
+                    {
+                        title: "OuieQare",
+                        description: "Complete platform for finding medical centers specialized in audiology. Intuitive interface with geolocation system and online appointment booking.",
+                        image: "/projects/ouieqare.png",
+                        url: "https://www.ouieqare.com/",
+                        stack: ["React", "Node.js", "MongoDB", "Google Maps API"]
+                    },
+                    {
+                        title: "Reactif Services Plus",
+                        description: "Professional showcase website for a locksmith service in Troyes. Modern design with contact form and 24/7 emergency system.",
+                        image: "/projects/reactif.png",
+                        url: "https://reactifservicesplus.fr/",
+                        stack: ["Wordpress", "Elementor", "CSS"]
+                    },
+                    {
+                        title: "Vtalys CRM",
+                        description: "Sophisticated CRM management platform dedicated to medical centers. Complete solution for patient management, appointments and billing.",
+                        image: "/projects/vtalys.png",
+                        url: "https://www.vtalys.fr/",
+                        stack: ["React", "TypeScript", "Node.js", "PostgreSQL", "Heroku"]
                     }
                 ]
             },
@@ -383,6 +443,7 @@ export default function WebLinkDevelopment() {
 
                         <div className="hidden md:flex items-center gap-8">
                             <a href="#services" className="text-slate-700 hover:text-blue-600 transition-colors font-medium text-lg">{t.nav.services}</a>
+                            <a href="#portfolio" className="text-slate-700 hover:text-blue-600 transition-colors font-medium text-lg">{t.nav.portfolio}</a>
                             <a href="#pricing" className="text-slate-700 hover:text-blue-600 transition-colors font-medium text-lg">{t.nav.pricing}</a>
                             <a href="#contact" className="text-slate-700 hover:text-blue-600 transition-colors font-medium text-lg">{t.nav.contact}</a>
                             <button
@@ -414,6 +475,7 @@ export default function WebLinkDevelopment() {
                 <div className="fixed inset-0 z-40 bg-white/95 backdrop-blur-xl md:hidden pt-20">
                     <div className="flex flex-col items-center gap-8 p-6">
                         <a href="#services" className="text-2xl text-slate-700 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>{t.nav.services}</a>
+                        <a href="#portfolio" className="text-2xl text-slate-700 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>{t.nav.portfolio}</a>
                         <a href="#pricing" className="text-2xl text-slate-700 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>{t.nav.pricing}</a>
                         <a href="#contact" className="text-2xl text-slate-700 hover:text-blue-600 font-medium" onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</a>
                         <button
@@ -462,9 +524,7 @@ export default function WebLinkDevelopment() {
                                 <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </a>
                             <a
-                                href={`https://wa.me/${language === 'fr' ? '33695443075' : '972539309450'}?text=${encodeURIComponent(language === 'fr' ? 'Bonjour, je souhaite voir votre portfolio' : 'Hello, I would like to see your portfolio')}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
+                                href="#portfolio"
                                 className="px-10 py-5 border-2 border-slate-300 rounded-full text-lg font-semibold hover:bg-blue-50 hover:border-blue-500 transition-all duration-300 text-slate-700"
                             >
                                 {t.hero.cta2}
@@ -516,6 +576,71 @@ export default function WebLinkDevelopment() {
                                     <p className="text-slate-600 text-lg leading-relaxed">{service.description}</p>
                                 </div>
                             </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Portfolio Section */}
+            <section id="portfolio" className="relative py-24 px-6 lg:px-12 xl:px-16 bg-gradient-to-br from-slate-50 to-blue-50">
+                <div className="max-w-7xl mx-auto">
+                    <div className="text-center mb-20 max-w-5xl mx-auto">
+                        <h2 data-animate="fade-up" className="text-5xl md:text-6xl font-bold mb-6 text-slate-900">
+                            {t.portfolio.title1} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t.portfolio.title2}</span>
+                        </h2>
+                        <p data-animate="fade-up" className="text-xl md:text-2xl text-slate-600">{t.portfolio.subtitle}</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+                        {t.portfolio.projects.map((project, idx) => (
+                            <a
+                                key={idx}
+                                href={project.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-animate="fade-up"
+                                className="relative group cursor-pointer block"
+                            >
+                                <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-indigo-400 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                                <div className="relative bg-white/90 backdrop-blur-sm border-2 border-slate-200 rounded-3xl overflow-hidden hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-200/50 transition-all duration-300">
+                                    {/* Project Image */}
+                                    <div className="relative h-64 bg-gradient-to-br from-blue-100 to-indigo-100 overflow-hidden">
+                                        <img
+                                            src={project.image}
+                                            alt={project.title}
+                                            className="w-full h-full object-cover object-left group-hover:scale-110 transition-transform duration-500 origin-left"
+                                            onError={(e) => {
+                                                e.target.style.display = 'none';
+                                                e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center"><div class="text-6xl font-bold text-blue-600/20">${project.title.charAt(0)}</div></div>`;
+                                            }}
+                                        />
+                                    </div>
+
+                                    {/* Project Info */}
+                                    <div className="p-8">
+                                        <h3 className="text-2xl font-bold mb-3 text-slate-900">{project.title}</h3>
+                                        <p className="text-slate-600 mb-6 leading-relaxed">{project.description}</p>
+
+                                        {/* Tech Stack */}
+                                        <div className="flex flex-wrap gap-2 mb-6">
+                                            {project.stack.map((tech, techIdx) => (
+                                                <span
+                                                    key={techIdx}
+                                                    className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        {/* View Project Button */}
+                                        <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/50 transition-all duration-300 group/btn">
+                                            {t.portfolio.viewProject}
+                                            <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
                         ))}
                     </div>
                 </div>
