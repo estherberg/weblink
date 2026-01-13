@@ -413,14 +413,14 @@ export default function WebLinkDevelopment() {
                 </svg>
             </a>
             {/* Animated Background */}
-            <div className="fixed inset-0 opacity-40 pointer-events-none">
+            <div className="hidden md:block fixed inset-0 opacity-40 pointer-events-none overflow-hidden">
                 <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
                 <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-indigo-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '700ms' }}></div>
                 <div className="absolute bottom-1/4 left-1/2 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl animate-pulse" style={{ animationDelay: '1000ms' }}></div>
             </div>
 
             {/* Grid Pattern */}
-            <div className="fixed inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none"></div>
+            <div className="hidden md:block fixed inset-0 bg-[linear-gradient(rgba(59,130,246,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.05)_1px,transparent_1px)] bg-[size:100px_100px] pointer-events-none"></div>
 
             {/* Navigation */}
             <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-lg shadow-blue-100/50' : ''}`}>
@@ -509,7 +509,7 @@ export default function WebLinkDevelopment() {
                             <span className="text-base text-blue-700 font-medium">{t.hero.badge}</span>
                         </div>
 
-                        <h1 data-animate="fade-up" className="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight text-slate-900">
+                        <h1 data-animate="fade-up" className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight text-slate-900">
                             {t.hero.title1}
                             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent"> {t.hero.title2}</span>
                         </h1>
